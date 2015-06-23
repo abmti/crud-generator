@@ -9,7 +9,7 @@ Laravel CRUD Generator
 
 1. Run 
     ```
-    composer require "appzcoder/crud-generator":"dev-master"
+    composer require abmti/laravel-scaffold-generate
     ```
     
 2. Add service provider into **/config/app.php** file.
