@@ -1,11 +1,13 @@
 {
-    "name": "appzcoder/crud-generator",
+    "name": "abmti/laravel-scaffold-generate",
     "license": "MIT",
     "description": "Laravel5 CRUD Generator",
     "keywords": [
         "laravel",
         "crud",
         "crud generator"
+        "laravel 5"
+        "laravel5"
     ],    
     "authors": [
         {
