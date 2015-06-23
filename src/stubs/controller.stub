@@ -3,7 +3,7 @@
 use DummyRootNamespaceHttp\Requests;
 use DummyRootNamespaceHttp\Controllers\Controller;
 
-use DummyRootNamespace{{crudNamePluralCap}};
+use DummyRootNamespace{{crudNameCap}};
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 
@@ -16,8 +16,8 @@ class DummyClass extends Controller {
 	 */
 	public function index()
 	{
-		${{crudNamePlural}} = {{crudNamePluralCap}}::latest()->get();
-		return view('{{crudName}}.index', compact('{{crudNamePlural}}'));
+		${{crudNamePlural}} = {{crudNameCap}}::latest()->get();
+		return view('{{crudNamePlural}}.index', compact('{{crudNamePlural}}'));
 	}
 
 	/**
@@ -27,7 +27,7 @@ class DummyClass extends Controller {
 	 */
 	public function create()
 	{
-		return view('{{crudName}}.create');
+		return view('{{crudNamePlural}}.create');
 	}
 
 	/**
@@ -38,8 +38,8 @@ class DummyClass extends Controller {
 	public function store(Request $request)
 	{
 		//$this->validate($request, ['name' => 'required']); // Uncomment and modify if needed.
-		{{crudNamePluralCap}}::create($request->all());
-		return redirect('{{crudName}}');
+		${{crudNameSingular}} = {{crudNameCap}}::create($request->all());
+		return redirect('{{crudNamePlural}}/'.${{crudNameSingular}}->id);
 	}
 
 	/**
@@ -50,8 +50,8 @@ class DummyClass extends Controller {
 	 */
 	public function show($id)
 	{
-		${{crudNameSingular}} = {{crudNamePluralCap}}::findOrFail($id);
-		return view('{{crudName}}.show', compact('{{crudNameSingular}}'));
+		${{crudNameSingular}} = {{crudNameCap}}::findOrFail($id);
+		return view('{{crudNamePlural}}.show', compact('{{crudNameSingular}}'));
 	}
 
 	/**
@@ -62,8 +62,8 @@ class DummyClass extends Controller {
 	 */
 	public function edit($id)
 	{
-		${{crudNameSingular}} = {{crudNamePluralCap}}::findOrFail($id);
-		return view('{{crudName}}.edit', compact('{{crudNameSingular}}'));
+		${{crudNameSingular}} = {{crudNameCap}}::findOrFail($id);
+		return view('{{crudNamePlural}}.edit', compact('{{crudNameSingular}}'));
 	}
 
 	/**
@@ -75,9 +75,9 @@ class DummyClass extends Controller {
 	public function update($id, Request $request)
 	{
 		//$this->validate($request, ['name' => 'required']); // Uncomment and modify if needed.
-		${{crudNameSingular}} = {{crudNamePluralCap}}::findOrFail($id);
+		${{crudNameSingular}} = {{crudNameCap}}::findOrFail($id);
 		${{crudNameSingular}}->update($request->all());
-		return redirect('{{crudName}}');
+		return redirect('{{crudNamePlural}}/'.${{crudNameSingular}}->id);
 	}
 
 	/**
@@ -88,8 +88,8 @@ class DummyClass extends Controller {
 	 */
 	public function destroy($id)
 	{
-		{{crudNamePluralCap}}::destroy($id);
-		return redirect('{{crudName}}');
+		{{crudNameCap}}::destroy($id);
+		return redirect('{{crudNamePlural}}');
 	}
 
 }

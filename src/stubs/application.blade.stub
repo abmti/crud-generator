@@ -49,7 +49,7 @@
 	<hr/>
 
 	<div class="container">
-	    &copy; {{ date('Y') }}. Created by <a href="http://www.appzcoder.com">AppzCoder</a>
+	    &copy; {{ date('Y') }}. Created by <a href="http://www.abmti.com.br">ABMTI</a>
 	    <br/>
 	</div>
 

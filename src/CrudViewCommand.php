@@ -154,14 +154,14 @@ class CrudViewCommand extends Command {
             file_put_contents($newShowFile,str_replace('%%crudNameSingularCap%%',$crudNameSingularCap,file_get_contents($newShowFile)));
         }  
 
-        // For layouts/master.blade.php file
+        // For layouts/application.blade.php file
         $layoutsDirPath = $this->laravel['path'].'/../resources/views/layouts/';        
         if(!is_dir($layoutsDirPath)) {
             mkdir($layoutsDirPath);   
         } 
 
-        $layoutsFile = __DIR__.'/stubs/master.blade.stub';
-        $newLayoutsFile = $layoutsDirPath.'master.blade.php';
+        $layoutsFile = __DIR__.'/stubs/application.blade.stub';
+        $newLayoutsFile = $layoutsDirPath.'application.blade.php';
         
         if ( !file_exists($newLayoutsFile) ) {
             if (!copy($layoutsFile, $newLayoutsFile)) {
