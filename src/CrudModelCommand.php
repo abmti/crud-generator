@@ -64,7 +64,7 @@ class CrudModelCommand extends GeneratorCommand {
     {
         $stub = $this->files->get($this->getStub());
 
-        $table = $this->option('table')? : strtolower($this->getNameInput());
+        $table = $this->option('table')? : str_plural(strtolower($this->getNameInput()));
         $fillable = $this->option('fillable');
 
         return $this->replaceNamespace($stub, $name)->replaceTable($stub, $table)->replaceFillable($stub, $fillable)->replaceClass($stub, $name);
